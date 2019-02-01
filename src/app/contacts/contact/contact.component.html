@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+  </title>
+</head>
+
+<body>
+  <div class="container" style="padding: 20px">
+    <div class="row">
+      <div class="col-md-4">
+        <div *ngIf="param=='Add'; then form; else list"></div>
+        <ng-template #form>
+          <form #frm ="ngForm">
+            <!-- <div class="form-group">
+                <label>Sno</label>
+                <input type="text" class="form-control" name="sno" placeholder="Enter Sno">
+              </div> -->
+            <div class="form-group">
+              <label>Name</label>
+              <input type="text" class="form-control" name="name" placeholder="Enter Name" ngModel>
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" class="form-control" name="email" placeholder="Enter Email" ngModel>
+            </div>
+            <button type="submit" (click)="onSave(frm.value)"  class="btn btn-primary">Submit</button>
+          </form>
+        </ng-template>
+      </div>
+      <div class="col-md-8">
+        <ng-template #list>
+          <table class="table table-striped"> 
+            <thead>
+              <th>sno</th>
+              <th>name</th>
+              <th>email</th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let contact of contacts">
+                <td>{{contact.sno}}</td>
+                <td>{{contact.name}}</td>
+                <td>{{contact.email}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

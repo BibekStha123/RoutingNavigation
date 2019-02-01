@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+  </title>
+</head>
+
+<body>
+  <div class="container" style="padding: 20px">
+    <div class="row">
+      <div class="col-md-4">
+        <form>
+          <!-- <div class="form-group">
+                <label>Sno</label>
+                <input type="text" class="form-control" name="sno" placeholder="Enter Sno">
+              </div> -->
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" class="form-control" name="name" placeholder="Enter Name">
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" class="form-control" name="email" placeholder="Enter Email">
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+      <div class="col-md-8">
+        <table class="table table-striped">
+          <thead>
+            <th>sno</th>
+            <th>name</th>
+            <th>email</th>
+            <th colspan="2">actions</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let contact of contacts">
+              <td>
+                 {{contact.sno}}
+              </td>
+              <td>
+                {{contact.name}}
+              </td>
+              <td>
+                {{contact.email}}
+              </td>
+              <td>
+                <a id="edit_contact.name" (click)="onEdit()" class="btn btn-outline-primary btn-sm">Edit</a>
+              </td>
+              <td>
+                <a id="delete_contact.id" (click)="onDelete(contact._id)" class="btn btn-outline-danger btn-sm">Delete</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
